@@ -2,6 +2,7 @@ import React from 'react';
 import {RouteHandler} from 'react-router';
 
 import Login from './Login';
+import PageList from './PageList';
 
 export default class App extends React.Component {
     state = { user: USER }
@@ -13,7 +14,7 @@ export default class App extends React.Component {
                     <h1> Wiki App </h1>
                     <Login user={this.state.user} setUser={this.setUser} />
 
-                    PageList
+                    <PageList user={this.state.user} />
                 </div>
                 <div className='nine columns'>
                     <RouteHandler user={this.state.user} />
