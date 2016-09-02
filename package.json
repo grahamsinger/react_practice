@@ -1,0 +1,37 @@
+{
+  "name": "firebase_react_wiki",
+  "version": "1.0.0",
+  "description": "A live collab wiki",
+  "main": "server.js",
+  "scripts": {
+    "build:js": "browserify src/app.js -t [babelify --presets [es2015 es2016 stage-0 react] ] --outfile public/all.js",
+    "build": "watch \"npm run build:js\" ./src"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "babel-brunch": "^6.0.6",
+    "babel-plugin-transform-class-properties": "^6.11.5",
+    "babel-preset-es2015": "^6.14.0",
+    "babel-preset-react": "^6.11.1",
+    "body-parser": "^1.15.2",
+    "cookie-parser": "^1.4.3",
+    "ejs": "^2.5.1",
+    "express": "^4.14.0",
+    "express-session": "^1.14.1",
+    "firebase": "^2.4.2",
+    "react": "^0.13.3",
+    "react-router": "^0.13.6"
+  },
+  "devDependencies": {
+    "babel-eslint": "^6.1.2",
+    "babel-preset-es2016": "^6.11.3",
+    "babel-preset-react": "^6.11.1",
+    "babel-preset-stage-0": "^6.5.0",
+    "babelify": "^7.2.0",
+    "browserify": "^13.1.0",
+    "eslint": "^3.4.0",
+    "eslint-plugin-react": "^6.2.0",
+    "watch": "^0.19.2"
+  }
+}
