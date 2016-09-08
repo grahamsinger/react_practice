@@ -1,6 +1,8 @@
 import React from 'react';
 import * as API from '../api';
 
+import Section from './Section';
+
 export default class Page extends React.Component {
     state = {
         page : {}
@@ -12,7 +14,7 @@ export default class Page extends React.Component {
     }
 
     //Funky react.js stuff
-    componentWillRecieveProps(nextProps) {
+    componentWillReceiveProps(nextProps) {
         API.pages.child(this.props.params.id).off('value', this.updateContent);
         API.pages.child(nextProps.params.id).on('value', this.updateContent);
 
@@ -32,6 +34,13 @@ export default class Page extends React.Component {
         //data is loaded
         if(this.state.page.title) {
             //render sections
+            if(this.state.sections){
+                sections = Object.keys(this.state.sections).map(id => <Section
+                            key={id}
+                            user={this.props.user}
+                            path={this.props.params.id + '/sections/' + id}
+                            section={this.state.sections[id]} />);
+            }
 
             if(this.props.user){
                 sections.push(<p key='addSection'>
